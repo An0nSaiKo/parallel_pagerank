@@ -1,5 +1,5 @@
 #simple makefile
-CFLAGS = -lpthread -Wall 
+CFLAGS = -pthread -Wall 
 CC = gcc
 
 main.out : src/main.c
@@ -7,4 +7,4 @@ main.out : src/main.c
 
 clean :
 	@echo 'Cleaning files...'
-	@rm -f "/src/*.o" *.out
+	@rm -f "/src/*.o" *.out output.txt
