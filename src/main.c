@@ -7,7 +7,7 @@
 #include <assert.h>
 
 #define ITERATIONS 50
-#define THREADS 4
+#define THREADS 2
 #define BUFFER_SIZE 200
 #define MAX_NODES 50000
 
@@ -176,7 +176,7 @@ int main(int argc, char** argv){
     clock_t end = clock();
 
     double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("Serial part excecution : %lf ms\n", time_spent);
+    DPRINTF("Serial part excecution : %lf ms\n", time_spent);
     
     /******************* PARALLEL PART ************************/
 
@@ -192,9 +192,9 @@ int main(int argc, char** argv){
     /******************* PRINT RESULTS ************************/
 
     char filename[100] = {0};
-    sprintf(filename, "%s.res", argv[1]);
+    sprintf(filename, "%s.result", argv[1]);
     FILE* fout = fopen(filename, "w");
-    printf("Results file : %s\n", filename);
+    DPRINTF("Results file : %s\n", filename);
     for(int i = 0; i < graph_size; ++i){
         fprintf(fout, "[%d] : %.3lf\n", i, graph[i].score);
     }
