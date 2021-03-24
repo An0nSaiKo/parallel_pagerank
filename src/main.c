@@ -7,9 +7,9 @@
 #include <assert.h>
 
 #define ITERATIONS 50
-#define THREADS 2
+#define THREADS 4
 #define BUFFER_SIZE 200
-#define MAX_NODES 50000
+#define MAX_NODES 100000
 
 #ifdef DEBUG 
 #define DPRINTF(...) fprintf(stderr, __VA_ARGS__)
@@ -19,8 +19,6 @@
 
 
 pthread_t threads[THREADS]; // array of threads to do work
-pthread_barrier_t update_barrier; // barrier for the score computation work
-pthread_barrier_t computation_barrier; // barrier for the score update work
 size_t graph_size = 0; // keeping the actual size of the graph
 int thread_count;
 
@@ -159,7 +157,7 @@ int main(int argc, char** argv){
         fprintf(stderr, "Error reading file %s : %s\n", argv[1], strerror(errno));
         exit(EXIT_FAILURE);
     }
-
+    printf("Input file : %s\n", argv[1]);
     printf("========= < THREADS = %d >=========\n", THREADS);
 
     /******************* READ INPUT ************************/
