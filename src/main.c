@@ -174,7 +174,7 @@ int main(int argc, char** argv){
     clock_t end = clock();
 
     double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-    DPRINTF("Serial part excecution : %lf ms\n", time_spent);
+    DPRINTF("Serial part excecution : %lf s\n", time_spent);
     
     /******************* PARALLEL PART ************************/
 
@@ -185,7 +185,7 @@ int main(int argc, char** argv){
     end = clock();
 
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("Parallel part excecution : %lf ms\n", time_spent);
+    printf("Parallel part excecution : %lf s\n", time_spent);
 
     /******************* PRINT RESULTS ************************/
 
